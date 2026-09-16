@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Exactitudes Mirror</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<main id="stage" class="stage stage--capture">
+
+  <section id="captureScreen" class="screen">
+    <h1>Find your Exactitude</h1>
+    <p class="consent">
+      This takes one photo of you to match your style against the real
+      <a href="https://exactitudes.com" target="_blank" rel="noopener">Exactitudes</a>
+      archive by Ari Versluis &amp; Ellie Uyttenbroek. Nothing is saved or sent anywhere
+      except to generate this one result.
+    </p>
+
+    <div class="camera-wrap">
+      <video id="video" autoplay playsinline muted></video>
+      <div id="countdown" class="countdown hidden"></div>
+    </div>
+
+    <button id="startBtn" class="btn">Take my photo</button>
+    <canvas id="canvas" class="hidden"></canvas>
+  </section>
+
+  <section id="loadingScreen" class="screen hidden">
+    <p class="loading-text">developing your Exactitude&hellip;</p>
+  </section>
+
+  <section id="resultScreen" class="screen hidden">
+    <h1 id="tribeName" class="tribe-name"></h1>
+    <p id="tribeMeta" class="tribe-meta"></p>
+    <p id="caption" class="caption"></p>
+
+    <div id="grid" class="grid"></div>
+
+    <p id="credit" class="credit"></p>
+    <button id="againBtn" class="btn btn--secondary">Try again</button>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
