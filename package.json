@@ -5,11 +5,15 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node scripts/seed-tribes.js"
   },
   "dependencies": {
     "@google/genai": "^2.22.0",
+    "@ngrok/ngrok": "^1.7.0",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.33.5"
   }
 }
