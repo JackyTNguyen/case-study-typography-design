@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exactitudes Mirror</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-state="idle">
+
+  <!-- Live camera: always full screen, mirrored. -->
+  <video id="camera" autoplay playsinline muted></video>
+
+  <div class="wordmark" aria-hidden="true">Exactitudes<sup>®</sup> <span>Mirror</span></div>
+
+  <!-- IDLE: consent, standing guide, hand-tracked capture button -->
+  <section id="idle" class="screen" aria-labelledby="consent-title">
+    <div id="stage" class="stage">
+      <svg class="guide" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <!-- Draw the figure solid, then keep only a ring around its edge: a clean single outline. -->
+          <filter id="outline" x="-10%" y="-10%" width="120%" height="120%">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="0.7" result="grown"/>
+            <feComposite in="grown" in2="SourceAlpha" operator="out" result="ring"/>
+            <feFlood flood-color="#fff"/>
+            <feComposite in2="ring" operator="in"/>
+          </filter>
+        </defs>
+        <g filter="url(#outline)" fill="#000" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="50" cy="10.5" r="5.6" stroke="none"/>
+          <line x1="50" y1="15" x2="50" y2="21" stroke-width="4.5"/>
+          <path d="M40 22 L60 22 L58.5 52 L41.5 52 Z" stroke-width="4"/>
+          <polyline points="39.5,24 35,38 33.5,51" stroke-width="5.5" fill="none"/>
+          <!-- raised arm: screen right, which is the visitor's right hand in the mirror -->
+          <polyline points="60.5,24 71,27.5 75.5,13" stroke-width="5.5" fill="none"/>
+          <circle cx="76" cy="10" r="3.4" stroke="none"/>
+          <polyline points="45.5,51 44.5,73 44,94" stroke-width="7" fill="none"/>
+          <polyline points="54.5,51 55.5,73 56,94" stroke-width="7" fill="none"/>
+          <line x1="44" y1="95" x2="40.5" y2="96" stroke-width="3.5"/>
+          <line x1="56" y1="95" x2="59.5" y2="96" stroke-width="3.5"/>
+        </g>
+      </svg>
+
+      <button class="dwell-btn capture-btn" data-dwell="capture" type="button" aria-label="Take my photo">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="ring" cx="50" cy="50" r="46" pathLength="100"/></svg>
+        <span>Hold your<br>hand here</span>
+      </button>
+    </div>
+
+    <aside class="consent">
+      <h1 id="consent-title">Nothing is saved.</h1>
+      <p class="consent-lede">Your photo is used once, to compare your clothes, hair and accessories with the Exactitudes archive, and then it's gone.</p>
+      <ol class="steps">
+        <li>Stand inside the outline.</li>
+        <li>Hold your raised hand in the circle.</li>
+        <li>Lower your arm and look into the camera.</li>
+      </ol>
+      <p class="consent-fine">No photo is taken until you hold up your hand (or ask). The background is removed on this screen, not online. Your result stays downloadable for <span data-ttl>20</span> minutes so you can scan it to your phone, then it's deleted. Nothing goes into a gallery or archive.</p>
+      <p class="voice-hint" hidden><span class="mic" aria-hidden="true"></span> Or say <strong>“take my photo”</strong></p>
+    </aside>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section id="countdown" class="screen" aria-live="assertive">
+    <div class="count" id="count-number">3</div>
+    <p class="count-hint">Lower your arm, look into the camera</p>
+  </section>
+  <div id="flash" class="flash"></div>
+
+  <!-- LOADING: after the exactitudes.com homepage banner (pastel gradient, huge Arial, slide dots) -->
+  <section id="loading" class="screen" aria-live="polite">
+    <div class="banner">
+      <div class="banner-word" id="banner-word">Gabbers</div>
+      <p class="banner-sub">Exactitudes<br><span id="banner-sub">Reading your dress code</span></p>
+    </div>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="screen">
+    <header class="bar">
+      <div class="bar-id">
+        <h2 class="tribe"><span class="tribe-num" id="r-num"></span><span id="r-name"></span></h2>
+        <p class="tribe-meta" id="r-meta"></p>
+        <p class="credit" id="r-credit"></p>
+      </div>
+      <div class="bar-text">
+        <p class="context" id="r-context"></p>
+        <p class="caption" id="r-caption"></p>
+        <p class="match-count" id="r-count" hidden></p>
+      </div>
+      <div class="bar-actions">
+        <button class="dwell-btn again-btn" data-dwell="reset" type="button" aria-label="Try again">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="ring" cx="50" cy="50" r="46" pathLength="100"/></svg>
+          <span>Again</span>
+        </button>
+        <figure class="qr">
+          <div id="r-qr"></div>
+          <figcaption>Scan to keep<br><small>deleted in <span data-ttl>20</span> min</small></figcaption>
+        </figure>
+      </div>
+      <div class="auto-reset" id="auto-reset"></div>
+    </header>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- ERROR -->
+  <section id="error" class="screen" role="alert">
+    <div class="banner">
+      <div class="banner-word small" id="error-title">Hmm.</div>
+      <p class="banner-sub" id="error-text">Something went wrong.</p>
+      <button class="dwell-btn again-btn error-btn" data-dwell="reset" type="button">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="ring" cx="50" cy="50" r="46" pathLength="100"/></svg>
+        <span>Try<br>again</span>
+      </button>
+    </div>
+  </section>
+
+  <div id="hand-cursors" aria-hidden="true"></div>
+  <p id="status" class="status" aria-live="polite"></p>
+
+  <script src="/js/layout.js"></script>
+  <script src="/js/voice.js"></script>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

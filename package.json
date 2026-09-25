@@ -1,0 +1,32 @@
+{
+  "name": "exactitudes-mirror",
+  "version": "4.0.0",
+  "description": "Interactive installation matching a visitor to a real Exactitudes tribe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node scripts/seed-tribes.js",
+    "fetch-models": "node scripts/fetch-models.js",
+    "setup": "npm run seed && npm run fetch-models"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackyTNguyen/case-study-typography-design.git"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JackyTNguyen/case-study-typography-design/issues"
+  },
+  "homepage": "https://github.com/JackyTNguyen/case-study-typography-design#readme",
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "@mediapipe/tasks-vision": "^1.0.1",
+    "@ngrok/ngrok": "^1.7.0",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.4"
+  },
+  "private": true
+}
