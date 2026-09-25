@@ -196,9 +196,9 @@ body[data-state="countdown"] #countdown { display: grid; }
 
 .grid {
   position: absolute; top: var(--bar-h); left: 0; right: 0; bottom: 0;
-  display: grid; gap: 0;
+  overflow: hidden; /* cells are positioned by layoutGrid() in app.js */
 }
-.grid .cell { min-width: 0; min-height: 0; overflow: hidden; background: var(--pastel); }
+.grid .cell { position: absolute; overflow: hidden; background: var(--pastel); }
 .grid img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .grid .cell.visitor img { animation: arrive 1.2s ease-out both; }
 @keyframes arrive { from { opacity: 0; } }
@@ -222,3 +222,22 @@ body[data-state="loading"] #hand-cursors { display: none; }
   font-size: 14px; color: #fff; background: rgba(0,0,0,.55); padding: .4em .7em;
 }
 .status:empty { display: none; }
+
+/* Portrait kiosk (the intended orientation): name + QR on top, the context
+   line and caption get the full width underneath instead of a narrow column. */
+@media (orientation: portrait) {
+  .bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    row-gap: calc(var(--bar-h) * .05);
+    padding: calc(var(--bar-h) * .08) calc(var(--bar-h) * .1);
+  }
+  .bar-id { grid-column: 1; grid-row: 1; }
+  .bar-actions { grid-column: 2; grid-row: 1; }
+  .tribe { font-size: calc(var(--bar-h) * .17); line-height: 1.15; -webkit-line-clamp: 1; }
+  .tribe-meta { font-size: calc(var(--bar-h) * .08); }
+  .credit { margin-top: .6em; font-size: calc(var(--bar-h) * .055); }
+  .bar-actions { height: calc(var(--bar-h) * .4); }
+  .bar-text { grid-column: 1 / -1; grid-row: 2; font-size: calc(var(--bar-h) * .075); }
+  .context { margin-bottom: .35em; }
+}

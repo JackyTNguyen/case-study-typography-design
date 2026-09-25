@@ -380,24 +380,27 @@ function renderMatch(m, i, total) {
   layoutGrid();
 }
 
-// Fit the photo cells to the current screen, edge to edge. Runs again on every
-// resize/rotation so the grid always fills the screen, portrait or landscape.
+// Fit the photo cells to the current screen, edge to edge with no empty slots.
+// Runs again on every resize/rotation, portrait or landscape.
 function layoutGrid() {
   const grid = $('grid');
-  grid.querySelectorAll('.cell.filler').forEach((c) => c.remove());
-  const n = grid.children.length;
-  if (!n) return;
+  const cells = [...grid.children];
+  if (!cells.length) return;
   const W = window.innerWidth;
   const H = window.innerHeight;
-  document.documentElement.style.setProperty('--bar-h', `${MirrorLayout.barHeight(W, H)}px`);
-  const { cols, rows } = MirrorLayout.grid(n, W, H - MirrorLayout.barHeight(W, H));
-  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-  grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-  for (let k = n; k < cols * rows; k++) {
-    const filler = document.createElement('div');
-    filler.className = 'cell filler'; // pastel
-    grid.append(filler);
-  }
+  const bar = MirrorLayout.barHeight(W, H);
+  document.documentElement.style.setProperty('--bar-h', `${bar}px`);
+  const { rects } = MirrorLayout.tiles(cells.length, W, H - bar);
+  cells.forEach((cell, k) => {
+    const r = rects[k];
+    Object.assign(cell.style, {
+      left: `${r.x * 100}%`,
+      top: `${r.y * 100}%`,
+      // +1px overlap hides sub-pixel seams between neighbours
+      width: `calc(${r.w * 100}% + 1px)`,
+      height: `calc(${r.h * 100}% + 1px)`,
+    });
+  });
 }
 
 // ---------------------------------------------------------------- error
