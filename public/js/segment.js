@@ -10,6 +10,7 @@ const MODEL_CDN =
 const ARCHIVE_GREY = '#F3F3F3';
 const EDGE_BLUR_PX = 1.5; // softens hair and sleeve edges
 const MIN_PERSON = 0.03; // below 3% of the frame: nobody there, use the original
+const MAX_PERSON = 0.92; // the person may fill at most 92% of the square, leaving a margin
 
 let segmenter = null;
 
@@ -37,9 +38,38 @@ export async function loadSegmenter(fileset) {
 
 export const segmenterReady = () => Boolean(segmenter);
 
+// The person's extent in the mask, as fractions of the frame. Uses the 1st-99th
+// percentile of mask weight per axis, so stray specks don't stretch the box.
+function personBox(fg, w, h) {
+  const cols = new Float32Array(w);
+  const rows = new Float32Array(h);
+  let total = 0;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const v = fg[y * w + x];
+      cols[x] += v;
+      rows[y] += v;
+      total += v;
+    }
+  }
+  const range = (hist) => {
+    let acc = 0;
+    let lo = 0;
+    let hi = hist.length - 1;
+    for (let i = 0; i < hist.length; i++) if ((acc += hist[i]) >= total * 0.01) { lo = i; break; }
+    acc = 0;
+    for (let i = hist.length - 1; i >= 0; i--) if ((acc += hist[i]) >= total * 0.01) { hi = i; break; }
+    return [lo / hist.length, (hi + 1) / hist.length];
+  };
+  const [x0, x1] = range(cols);
+  const [y0, y1] = range(rows);
+  return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
+}
+
 // photo: a square canvas holding the captured frame.
-// Resolves to a JPEG data URL of the cut-out, or null if there's no usable
-// person mask (the caller then uses the original photo).
+// Resolves to { dataUrl, box } where the person is centred in the square and
+// box is their size as a fraction of it, or null if there's no usable person
+// mask (the caller then uses the original photo).
 export async function cutOut(photo, quality = 0.9) {
   if (!segmenter) return null;
   const size = photo.width;
@@ -48,6 +78,7 @@ export async function cutOut(photo, quality = 0.9) {
   // noise drops out while soft hair edges stay soft.
   let mask = null;
   let coverage = 0;
+  let box = null;
   segmenter.segment(photo, (result) => {
     const bg = result.confidenceMasks && result.confidenceMasks[0];
     if (!bg) return;
@@ -55,13 +86,15 @@ export async function cutOut(photo, quality = 0.9) {
     const h = bg.height;
     const conf = bg.getAsFloat32Array();
     const data = new ImageData(w, h);
+    const fg = new Float32Array(conf.length);
     let sum = 0;
     for (let i = 0; i < conf.length; i++) {
-      const fg = Math.min(1, Math.max(0, (1 - conf[i] - 0.2) / 0.6)); // smoothstep-ish 0.2..0.8
-      sum += fg;
-      data.data[i * 4 + 3] = Math.round(fg * 255);
+      fg[i] = Math.min(1, Math.max(0, (1 - conf[i] - 0.2) / 0.6)); // smoothstep-ish 0.2..0.8
+      sum += fg[i];
+      data.data[i * 4 + 3] = Math.round(fg[i] * 255);
     }
     coverage = sum / conf.length;
+    box = personBox(fg, w, h);
     mask = new OffscreenCanvas(w, h);
     mask.getContext('2d').putImageData(data, 0, 0);
   });
@@ -75,18 +108,23 @@ export async function cutOut(photo, quality = 0.9) {
   pc.filter = `blur(${EDGE_BLUR_PX}px)`;
   pc.drawImage(mask, 0, 0, size, size);
 
-  // ...placed on the archive grey.
+  // ...moved to the centre of the square (and shrunk only if they nearly fill
+  // it), on the archive grey. The grey is flat, so moving leaves no seam.
+  const k = Math.min(1, MAX_PERSON / Math.max(box.w, box.h));
+  const dx = size / 2 - (box.x + box.w / 2) * size * k;
+  const dy = size / 2 - (box.y + box.h / 2) * size * k;
   const out = new OffscreenCanvas(size, size);
   const oc = out.getContext('2d');
   oc.fillStyle = ARCHIVE_GREY;
   oc.fillRect(0, 0, size, size);
-  oc.drawImage(person, 0, 0);
+  oc.drawImage(person, dx, dy, size * k, size * k);
 
   const blob = await out.convertToBlob({ type: 'image/jpeg', quality });
-  return new Promise((resolve, reject) => {
+  const dataUrl = await new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(blob);
   });
+  return { dataUrl, box: { w: box.w * k, h: box.h * k } };
 }

@@ -16,6 +16,7 @@ const MULTI_CYCLE_SECONDS = 14;
 let config = { countdownSeconds: 3, dwellMs: 1200, voiceLang: 'en-US', tribeNames: [], resultTtlMinutes: 20 };
 let state = 'idle';
 let visitorPhoto = null; // cut-out (or original) data URL, only while a result is on screen
+let visitorBox = null; // the person's size in that photo, so the grid never crops them
 let timers = [];
 
 // ================================================================ state
@@ -38,6 +39,7 @@ function clearTimers() {
 function toIdle() {
   clearTimers();
   visitorPhoto = null;
+  visitorBox = null;
   $('grid').replaceChildren();
   $('r-qr').replaceChildren();
   setState('idle');
@@ -269,7 +271,8 @@ async function capture() {
   void flash.offsetWidth;
   flash.classList.add('go');
 
-  const t0 = performance.now();
+  const t0 = performance.now(); // the moment the photo is taken
+  const marks = {}; // ms after t0, for the end-to-end log below
   const captureId = crypto.randomUUID();
   const photo = grabSquare();
   const original = photo.toDataURL('image/jpeg', 0.88);
@@ -285,7 +288,8 @@ async function capture() {
       if (!res.ok || !data || !Array.isArray(data.matches) || !data.matches.length) {
         throw Object.assign(new Error('match failed'), { code: data && data.error && data.error.code });
       }
-      console.info(`[timing] AI match ${Math.round(performance.now() - t0)}ms`);
+      marks.match = performance.now() - t0;
+      console.info(`[timing] AI match ${Math.round(marks.match)}ms`);
       return data;
     })
     .finally(() => clearTimeout(timeout));
@@ -302,21 +306,47 @@ async function capture() {
       console.warn('Background removal failed:', err);
     }
     const now = performance.now();
+    marks.cutout = now - t0;
     console.info(`[timing] cut-out ${cut ? 'ready' : 'skipped'} ${Math.round(now - t0)}ms (segmentation ${Math.round(now - s0)}ms)`);
-    post('/api/cutout', cut ? { captureId, image: cut } : { captureId, failed: true }).catch(() => {});
-    return cut || original;
+    post('/api/cutout', cut ? { captureId, image: cut.dataUrl, box: cut.box } : { captureId, failed: true }).catch(() => {});
+    return cut || { dataUrl: original, box: null };
   })();
 
   try {
-    const [data, src] = await Promise.all([match, visitor]);
-    visitorPhoto = src;
+    const [data, photoOut] = await Promise.all([match, visitor]);
+    visitorPhoto = photoOut.dataUrl;
+    visitorBox = photoOut.box;
+    marks.bothReady = performance.now() - t0;
     await preload(data.matches[0].images);
+    marks.photosLoaded = performance.now() - t0;
     stopBanner();
     showResult(data);
+    logTotal(t0, marks, data.matches[0].title);
   } catch (err) {
     stopBanner();
     showError(err.name === 'AbortError' ? 'TIMEOUT' : err.code);
   }
+}
+
+// End-to-end timer: from the photo being taken to the result actually being
+// painted on screen (two animation frames after it's rendered), with where the
+// time went.
+function logTotal(t0, marks, title) {
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      const ms = (v) => `${(v / 1000).toFixed(2)}s`;
+      const total = performance.now() - t0;
+      console.log(
+        `%c[timing] capture → result on screen: ${ms(total)}`,
+        'font-weight: bold; font-size: 13px',
+        `\n  AI match + series fetch: ${ms(marks.match)}` +
+          `\n  background removal:      ${ms(marks.cutout)}  (in parallel)` +
+          `\n  loading archive photos:  ${ms(marks.photosLoaded - marks.bothReady)}` +
+          `\n  rendering the result:    ${ms(total - marks.photosLoaded)}` +
+          `\n  matched: ${title}`
+      );
+    })
+  );
 }
 
 // Let the grid arrive together rather than popping in tile by tile.
@@ -420,7 +450,9 @@ function layoutGrid() {
   if (!cells.length) return;
   const bar = MirrorLayout.barHeight(innerWidth, innerHeight);
   document.documentElement.style.setProperty('--bar-h', `${bar}px`);
-  const { rects } = MirrorLayout.tiles(cells.length, innerWidth, innerHeight - bar);
+  const gridW = innerWidth;
+  const gridH = innerHeight - bar;
+  const { rects } = MirrorLayout.tiles(cells.length, gridW, gridH);
   cells.forEach((cell, k) => {
     const r = rects[k];
     Object.assign(cell.style, {
@@ -430,6 +462,12 @@ function layoutGrid() {
       width: `calc(${r.w * 100}% + 1px)`,
       height: `calc(${r.h * 100}% + 1px)`,
     });
+    const img = cell.classList.contains('visitor') && cell.querySelector('img');
+    if (img) {
+      // Same no-crop fit as the downloadable PNG.
+      const f = MirrorLayout.fitVisitor(r.w * gridW, r.h * gridH, visitorBox);
+      Object.assign(img.style, { width: `${f.size}px`, height: `${f.size}px`, left: `${f.x}px`, top: `${f.y}px` });
+    }
   });
 }
 
