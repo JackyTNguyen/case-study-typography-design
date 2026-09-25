@@ -30,6 +30,8 @@ Re-run `npm run seed` by hand when Exactitudes publishes a new series.
 
 Before an exhibition, make one throwaway call to confirm the model ID still exists and billing works. `gemini-2.5-flash` was already deprecated once mid-project.
 
+Each tribe in the prompt carries a one-line dress-code description from `data/tribe-descriptions.json` (matched by ID). In a quick test of five archive portraits, titles alone put 0 of 5 back in their own series and the descriptions put back all 5, with no extra wait. Tribes without a description, such as a new series picked up by a later `npm run seed`, are matched on title alone, so write a description for each new series. The prompt tells the model to ignore any age, gender or physique wording in the descriptions.
+
 The response schema makes `title` an enum of the ~202 real titles, so the model can't invent a tribe. `lib/tribes.js` still resolves the answer defensively: it strips an echoed "— City Year", folds accents, and falls back to the name, catalogue number or a substring match. The prompt explicitly excludes pose, stance and background. One Gemini quirk: `maxItems > 1` alongside that large enum is rejected with `INVALID_ARGUMENT`, so multi-match mode caps the count in code instead.
 
 ## How a capture flows

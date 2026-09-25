@@ -224,7 +224,7 @@ async function start() {
   Kiosk:      http://${KIOSK_HOST === '0.0.0.0' ? 'localhost' : KIOSK_HOST}:${PORT}
   QR base:    ${publicBase}   (results only; test it from a real phone)
   Model:      ${MODEL}${MULTI_MATCH ? '  [multi-match on]' : ''}
-  Tribes:     ${tribes.length} from data/tribes.json
+  Tribes:     ${tribes.length} from data/tribes.json (${tribes.filter((t) => t.dressCode).length} with dress-code descriptions)
   Result TTL: ${results.TTL_MS / 60000} min`);
 }
 

@@ -1,0 +1,1012 @@
+[
+  {
+    "id": 6758,
+    "title": "202. Femme",
+    "dressCode": "Mostly older people in feminine clothes: knee-length patterned or floral dresses, sometimes a metallic, leather-look or lace dress, a handbag on the arm, necklaces and earrings; short grey or shoulder-length hair, glasses common."
+  },
+  {
+    "id": 6744,
+    "title": "201. Première Ligne",
+    "dressCode": "Young men shirtless with lots of tattoos, only in short swim shorts (red, black, white, light blue, grey) with the waistband of designer boxers showing; sunglasses, short faded haircuts, gym-built bodies."
+  },
+  {
+    "id": 6730,
+    "title": "200. Sad Ambient Boys",
+    "dressCode": "Young men dressed almost entirely in black or very dark navy: plain or subtly printed dark knit sweaters and long-sleeve tops, dark trousers, occasionally grey jeans; messy mid-length or curtain hair, pale and understated, no bright colour anywhere. The dark top is essential, dark trousers alone are not enough."
+  },
+  {
+    "id": 6716,
+    "title": "199. Team Total 90",
+    "dressCode": "Young people mixing football (soccer) jerseys and track jackets with streetwear: retro or club shirts, training tops, shiny sports fabrics, worn with dark trousers or shorts; short cropped hair, some piercings."
+  },
+  {
+    "id": 6702,
+    "title": "198. Slam Jam",
+    "dressCode": "Young creatives in black and grey streetwear: band and graphic T-shirts, faded or distressed tees, long-sleeve tops, worn with baggy jeans or cargo trousers; mixed hair lengths, caps, dark sunglasses; skate/fashion-store look."
+  },
+  {
+    "id": 6688,
+    "title": "197. Architects",
+    "dressCode": "Men in their 30s-40s in French-style blue work jackets (chore coats in cobalt, navy, washed blue, sometimes green) over a plain T-shirt, with jeans or dark trousers; short hair or shaved heads, beards, sober and practical."
+  },
+  {
+    "id": 6674,
+    "title": "196. Comrades",
+    "dressCode": "Young activists wearing a black-and-white or red-and-white keffiyeh draped over the shoulders, over dark or khaki jackets, denim or utility wear; crossbody bags, curly or mid-length hair."
+  },
+  {
+    "id": 6660,
+    "title": "195. F*ck Lacoste",
+    "dressCode": "Young men in Lacoste-style tracksuits: zip-up track jackets with colour-block panels or stripes (green, blue, navy, black), matching track trousers, caps; short faded haircuts, some moustaches."
+  },
+  {
+    "id": 6646,
+    "title": "194. Fitgirls",
+    "dressCode": "Young women in tight seamless gym sets: fitted long-sleeve or cropped tops and matching leggings in nude, grey, blue, black, lilac or mint; hair in a sleek high bun or ponytail, groomed brows, athletic silhouette."
+  },
+  {
+    "id": 6632,
+    "title": "193. Sportlimas",
+    "dressCode": "Young women in hijab combined with oversized sporty streetwear: American football or varsity jerseys, college hoodies and sweatshirts with big lettering or numbers, baggy jeans or joggers."
+  },
+  {
+    "id": 6618,
+    "title": "192. Ummah United",
+    "dressCode": "Young men in a long white, cream, grey or blue thobe/djellaba worn under a puffer jacket, bomber or blazer; short beards, some with a kufi cap; sneakers."
+  },
+  {
+    "id": 6604,
+    "title": "191. Hudabeauties",
+    "dressCode": "Young women with long dark sleek hair and full make-up, in an oversized beige, camel, grey or black blazer over a black top, blue jeans, and a small designer shoulder or crossbody bag."
+  },
+  {
+    "id": 6458,
+    "title": "190. Balenciaga by Demna",
+    "dressCode": "High-fashion runway looks in dark and neutral tones: oversized, sharp-shouldered blazers and coats, long leather coats, trench coats, check or pinstripe tailoring, very long sleeves; severe, dramatic silhouettes."
+  },
+  {
+    "id": 6457,
+    "title": "189. Balenciaga by Demna",
+    "dressCode": "Runway streetwear pushed to extremes: oversized hoodies, logo tees and sweats, huge puffer or bomber jackets, washed denim jackets, caps and hoods, sometimes face-covering; baggy and deliberately odd."
+  },
+  {
+    "id": 6456,
+    "title": "188. Balenciaga by Demna",
+    "dressCode": "Runway looks in body-hugging stretch pieces: skin-tight zip tops and catsuits, bodycon mini dresses, lace or ruched details, fluffy boa, tight leggings, small bags, dark sunglasses; sleek and futuristic."
+  },
+  {
+    "id": 6455,
+    "title": "187. Messies",
+    "dressCode": "Young people in oversized bomber or puffer jackets (olive, grey, navy, black) zipped up, with a hood, beanie or scarf around the head, and a short plaid, camo or ruffled skirt or shorts peeking out underneath; messy, layered, thrown-together."
+  },
+  {
+    "id": 6418,
+    "title": "186. Nada Saves",
+    "dressCode": "Creative, eclectic people in loud one-off pieces: DIY or painted garments, graphic sweaters with big text, patterned mesh tops, printed or patchwork jackets, bright colours and clashing prints; dyed hair, mixed ages."
+  },
+  {
+    "id": 6417,
+    "title": "185. They",
+    "dressCode": "Queer, gender-fluid young people in playful mixed pieces: cropped tanks and camis, mesh or crochet tops, mini skirts and kilts, low-rise trousers, layered necklaces; short or bleached hair, visible skin."
+  },
+  {
+    "id": 6416,
+    "title": "184. Shine",
+    "dressCode": "Women in long, loose coats (black leather, dark green leather, beige trench, pale pink) worn open over a single bright-coloured top (neon yellow, red, blue) and dark trousers; sleek hair, minimalist fashion look."
+  },
+  {
+    "id": 6403,
+    "title": "183. Ukraine House",
+    "dressCode": "Women in long, quilted puffer coats reaching the knees or ankles (black, beige, white, grey, green), zipped up to the chin, often with a knitted beanie; long hair tucked in."
+  },
+  {
+    "id": 6389,
+    "title": "182. Polski Streetshop",
+    "dressCode": "Young men in sporty zip-up windbreakers or softshell jackets with colour-block panels (black, red, grey, white, blue), track trousers or jeans, occasionally a cap; very short buzzed hair."
+  },
+  {
+    "id": 6375,
+    "title": "181. Kotomisi",
+    "dressCode": "Older Surinamese women in traditional kotomisi dress: full, wide printed cotton dresses and skirts with a matching scarf, and a starched, folded headwrap (angisa) in bright colours and prints."
+  },
+  {
+    "id": 6361,
+    "title": "180. July First",
+    "dressCode": "Older men in a dark or grey suit jacket over a checked shirt, V-neck sweater or knitted vest, grey trousers, sometimes a flat cap or white prayer cap; grey hair, moustaches."
+  },
+  {
+    "id": 6347,
+    "title": "179. Velha Guarda",
+    "dressCode": "Older men in short-sleeved button-up shirts, often loud tropical, floral or graphic prints (or plain white/blue), tucked into jeans or chinos, with a baseball cap; relaxed Cape Verdean/Caribbean style."
+  },
+  {
+    "id": 6333,
+    "title": "178. Chi",
+    "dressCode": "Older Chinese women in padded or quilted vests and jackets (purple, blue, black, maroon), patterned blouses or sweaters underneath, dark trousers; short permed grey or dark hair."
+  },
+  {
+    "id": 6511,
+    "title": "177. Free Agents",
+    "dressCode": "Ballroom/vogue scene: black mesh, sheer, harness and leather pieces, cut-outs, corsets, fishnet, platform boots, shiny fabrics and bold make-up; lots of skin, club-night fashion."
+  },
+  {
+    "id": 6106,
+    "title": "176. Deftones Heaven",
+    "dressCode": "Young people in band merch and grunge: Deftones and metal band tees, dark hoodies with skull prints, distressed or layered knitwear, camo or baggy trousers, chokers; alt hairstyles, some dyed."
+  },
+  {
+    "id": 6069,
+    "title": "175. Coureurs",
+    "dressCode": "Older men in vintage wool or lycra cycling jerseys with team sponsor names and colourful panels (yellow, red, blue, orange), black cycling shorts; short grey hair, lean."
+  },
+  {
+    "id": 6054,
+    "title": "174. PPP Figli",
+    "dressCode": "Young men with a 1970s Pasolini-inspired look: bare chest or open vintage shirts, knitted tank tops, fuzzy or animal-textured jackets and cardigans, high-waisted flared trousers; tousled dark hair."
+  },
+  {
+    "id": 6041,
+    "title": "173. Blaak",
+    "dressCode": "Young skaters holding a skateboard, in loose graphic or vintage T-shirts (sometimes over a long-sleeve), baggy jeans or work trousers, beanies or caps."
+  },
+  {
+    "id": 6008,
+    "title": "172. Y2K Z",
+    "dressCode": "Young women in Y2K fairy-grunge layers: lace, crochet and mesh tops over camis, shrugs and arm warmers, tiered or ruffled mini and midi skirts, layered necklaces; messy textured or curly hair, hair clips."
+  },
+  {
+    "id": 5876,
+    "title": "171. Me-mies",
+    "dressCode": "Young women taking a selfie with a phone, in bright, sporty 90s-revival outfits: cropped tops, shiny windbreakers and track jackets in neon or pastel colours, baggy track trousers, bucket hats, colourful hair."
+  },
+  {
+    "id": 5835,
+    "title": "170. Uwupies",
+    "dressCode": "Young people in an e-girl/anime style: black or pastel tops with harnesses and chains, pleated plaid mini skirts, fishnets and knee socks, platform shoes; pigtails, dyed hair (pink, green, blue), heavy blush and eyeliner."
+  },
+  {
+    "id": 5820,
+    "title": "169. E-Gees",
+    "dressCode": "E-boys: oversized band or graphic T-shirt layered over a striped or plain long-sleeve, chains and belts hanging from the waist, baggy jeans or checked trousers; dyed or fluffy mid-length hair, painted nails."
+  },
+  {
+    "id": 5437,
+    "title": "168. EUnify",
+    "dressCode": "Young people in a hoodie (blue, black, green, red) printed with the ring of yellow EU stars, worn with jeans or casual trousers."
+  },
+  {
+    "id": 6581,
+    "title": "167. Dealers",
+    "dressCode": "Middle-aged men in a navy or dark padded down jacket, a long wool or patterned scarf knotted at the neck, dark sweater and jeans; balding or short grey hair, glasses."
+  },
+  {
+    "id": 5006,
+    "title": "166. Trendsetters",
+    "dressCode": "Fashion-industry people in long, oversized wool overcoats (camel, check, grey, black, navy) worn open over dark layers; understated, expensive-looking, mixed ages."
+  },
+  {
+    "id": 5005,
+    "title": "165. Representatives",
+    "dressCode": "Women in patterned or printed silk blouses (florals, paisley, bold prints in yellow, green, blue, purple), sometimes a bow, tucked into black or grey trousers; long blowdried hair, polished look."
+  },
+  {
+    "id": 5004,
+    "title": "164. Operators",
+    "dressCode": "Young men in a plain or slightly printed crewneck sweater (navy, black, pink, grey, white, mustard) over blue jeans; short neat hair, short beards, office-casual."
+  },
+  {
+    "id": 5003,
+    "title": "163. Indispensibles",
+    "dressCode": "Women in short, fitted printed dresses (small florals or dots on dark navy, burgundy, green or black), often with a belt at the waist, hands on hips; long dark hair."
+  },
+  {
+    "id": 5002,
+    "title": "162. Accountables",
+    "dressCode": "Men in a plain crewneck sweater (navy, grey, black, camel, brown, blue) with a shirt collar peeking out at the neck, chinos or dark trousers; short neat hair, trimmed beards."
+  },
+  {
+    "id": 5001,
+    "title": "161. Realizers",
+    "dressCode": "Women in a casual zip-up hoodie or sweat jacket (grey, pink, black, green, coral, blue) open over a T-shirt, with jeans; hair tied back, no-nonsense everyday look."
+  },
+  {
+    "id": 5000,
+    "title": "160. Responsibles",
+    "dressCode": "Men in tailored suits, often double-breasted (navy, grey, pinstripe, check), with a shirt and tie and sometimes a pocket square; slicked or neat hair, classic Italian businessman."
+  },
+  {
+    "id": 5956,
+    "title": "159. Originals",
+    "dressCode": "Young women with big natural curly afros, in a bralette, bandeau or cropped tank top with high-waisted jeans, leather or patterned trousers."
+  },
+  {
+    "id": 4999,
+    "title": "158. Sllik",
+    "dressCode": "Young men with dreadlocks or twists in loud, colourful streetwear: oversized puffer, fleece or denim jackets, hoodies in bright colours, printed or patterned layers, graphic tees; a mix of vintage and brands."
+  },
+  {
+    "id": 4998,
+    "title": "157. Common Complex",
+    "dressCode": "Young men in a fitted turtleneck (black, white, grey, rust, mustard, navy) tucked into high-waisted wide trousers with a belt; short cropped hair, minimalist."
+  },
+  {
+    "id": 4997,
+    "title": "156. Good Morning Berlin",
+    "dressCode": "Young men in the Berlin fetish/club scene: bare chest with leather or rubber harnesses and chokers, black shorts or leather trousers; buzzed hair, tattoos."
+  },
+  {
+    "id": 2073,
+    "title": "155. Helmut Lang Fans",
+    "dressCode": "Minimalist fashion fans in black, white and grey: black jackets, plain or logo tees, harness details, skinny or raw-denim jeans, black leather; long straight hair or shaved heads, severe and clean."
+  },
+  {
+    "id": 2060,
+    "title": "154. United Americans",
+    "dressCode": "Older American men in casual shirts (plaid flannel, checked button-downs, solid colours) or a zip jacket, jeans or khakis, and a baseball cap; white or grey hair."
+  },
+  {
+    "id": 2047,
+    "title": "153. Grand Hello Tour",
+    "dressCode": "Young Asian women tourists making a peace sign, with a camera around the neck or a crossbody bag, in layered casual outfits (knit sweaters, plaid coats, jackets, scarves, hats); long dark hair, fringe."
+  },
+  {
+    "id": 2034,
+    "title": "152. Portrait of a Lady",
+    "dressCode": "Older women with short grey or blonde hair in a black or dark top and a structured jacket (black blazer, leather jacket, tweed or leopard print), black trousers; elegant, minimal."
+  },
+  {
+    "id": 2021,
+    "title": "151. Farmcore",
+    "dressCode": "Young people in waxed cotton country jackets (Barbour-style, olive, brown, dark green, black) with a corduroy collar, worn over dark tops and trousers; tousled hair."
+  },
+  {
+    "id": 2008,
+    "title": "150. Mystique",
+    "dressCode": "Older women in bohemian, artistic layers: long draped cardigans and tunics, colourful shawls and scarves (purple, red, teal, patterned), long skirts, statement jewellery; short grey or dyed red hair."
+  },
+  {
+    "id": 1995,
+    "title": "149. Contacts",
+    "dressCode": "Middle-aged men in a dark or navy blazer over an open-collar shirt or sweater, with jeans or chinos, arms crossed; short grey hair, glasses, networker look."
+  },
+  {
+    "id": 1982,
+    "title": "148. Old Masters",
+    "dressCode": "Older men (artists) in dark jackets or cardigans with a scarf, sweater or open shirt, casual trousers; white or grey hair, glasses, some with a colourful scarf."
+  },
+  {
+    "id": 1969,
+    "title": "147. Glamboh",
+    "dressCode": "Women in wide-brimmed felt fedora hats, with ponchos, blanket-scarves or patterned knit capes over black tops and skinny black jeans or leather leggings; boho-glam."
+  },
+  {
+    "id": 1956,
+    "title": "146. Hashdags",
+    "dressCode": "Teenage girls in T-shirts and sweaters with a big printed slogan or hashtag (black, white or grey with bold lettering), jeans or leggings; long straight hair, often blonde or red."
+  },
+  {
+    "id": 1943,
+    "title": "145. Omen",
+    "dressCode": "Young men dressed all in black streetwear-goth: black leather jackets, black hoodies with the hood up, long black layered tops and drop-crotch trousers, sometimes a long tunic; arms crossed, beards."
+  },
+  {
+    "id": 1930,
+    "title": "144. Topshoppers",
+    "dressCode": "Teenage boys in a slim polo shirt (black, navy, white, olive, blue, pink) and short denim or chino shorts; short neat hair, arms crossed."
+  },
+  {
+    "id": 1917,
+    "title": "143. Anna Zaranina",
+    "dressCode": "Young women with long straight hair in short, fitted sleeveless dresses in a single bright colour (yellow, red, blue, green, pink, coral, black), sunglasses pushed up on the head."
+  },
+  {
+    "id": 1903,
+    "title": "142. Indorockers",
+    "dressCode": "Older Indo-Dutch men in leather jackets (black or brown), shirts, jeans, some with sunglasses, cowboy or trucker hats; slicked grey hair, rock 'n' roll look."
+  },
+  {
+    "id": 1890,
+    "title": "141. Tempo Doeloe",
+    "dressCode": "Older Indo-Dutch men in long-sleeved batik shirts with rich brown, gold and blue patterns, worn loose over trousers; short grey hair."
+  },
+  {
+    "id": 1877,
+    "title": "140. What’s up G",
+    "dressCode": "Young men shirtless and heavily tattooed (old-school and traditional tattoos across chest and arms), low-slung jeans with a belt, often a cap or beanie; skinny."
+  },
+  {
+    "id": 1864,
+    "title": "139. Mwah!",
+    "dressCode": "Young women with long straight blonde or light-brown hair in a black blazer over a grey or white T-shirt or tank, with very short denim cut-off shorts, often black tights."
+  },
+  {
+    "id": 1851,
+    "title": "138. Rebels",
+    "dressCode": "Men in double denim: a blue denim jacket over a denim shirt and jeans, sometimes with pins or a neckerchief; quiffs and greased-back hair, rockabilly touch."
+  },
+  {
+    "id": 1838,
+    "title": "137. Veggies",
+    "dressCode": "Young women wrapped in big chunky knit scarves (grey, beige, black, blue) over long cardigans or knit jackets, T-shirts and jeans or leggings; hair in a messy top bun."
+  },
+  {
+    "id": 1825,
+    "title": "136. Uomo Espresso",
+    "dressCode": "Older Italian gentlemen in a long camel overcoat worn open over a three-piece suit or waistcoat, shirt and tie; slicked-back grey hair, sometimes tinted glasses."
+  },
+  {
+    "id": 1812,
+    "title": "135. Cappuccio Girls",
+    "dressCode": "Young women in a long camel or beige wool coat worn open over a dark top, jeans or skinny trousers; long straight hair, understated."
+  },
+  {
+    "id": 1799,
+    "title": "134. Team Doppio",
+    "dressCode": "Young men in a black or dark leather/faux-leather biker-style jacket with a coloured hoodie underneath (hood out), jeans; short gelled hair, some Italian flag details."
+  },
+  {
+    "id": 1785,
+    "title": "133. Americanos",
+    "dressCode": "Young men with full beards in a knit sweater, peacoat or quilted jacket (navy, cream, brown, black) with a big wrapped scarf, jeans; hair styled up, hipster look."
+  },
+  {
+    "id": 1772,
+    "title": "132. Latte Lovers",
+    "dressCode": "Young women in shiny quilted down jackets (Moncler-style) in bright or metallic colours (navy, bronze, purple, sky blue, red, cream, teal), jeans; long hair."
+  },
+  {
+    "id": 1759,
+    "title": "131. Barista",
+    "dressCode": "Waiters/baristas in a white shirt with a bow tie (black or red) and a waistcoat or white/grey shawl-collar jacket, black trousers; short neat hair."
+  },
+  {
+    "id": 1745,
+    "title": "130. Cool Café",
+    "dressCode": "Young men in slim casual layers: skinny jeans, long cardigans or patterned knits over graphic tees, black leather or bomber jackets, colourful jeans; swept, dyed or asymmetric hair."
+  },
+  {
+    "id": 1732,
+    "title": "129. Donna Decaffeinata",
+    "dressCode": "Older women in long mink or fur coats (brown, honey, dark brown) worn buttoned up; coiffed blonde or grey hair, glasses, jewellery."
+  },
+  {
+    "id": 1719,
+    "title": "128. Brigade",
+    "dressCode": "Older women in long denim or chambray coats reaching the ankles, buttoned up, with a patterned headscarf tied under the chin."
+  },
+  {
+    "id": 1706,
+    "title": "127. Auntie Never Ever",
+    "dressCode": "Older women in light summer jackets or cardigans (white, pastel green, pink, blue denim) over bright floral or patterned blouses, light trousers; short permed grey-blonde hair, glasses, hands on hips."
+  },
+  {
+    "id": 1693,
+    "title": "126. Déjeuner sur l’Herbe",
+    "dressCode": "Women in short-sleeved wrap or V-neck summer dresses with floral or polka-dot prints (black, blue, red, patterned); loose curly or pinned-up hair, sometimes a flower in the hair."
+  },
+  {
+    "id": 1679,
+    "title": "125. Chateau Rouge",
+    "dressCode": "African men in matching two-piece outfits of bold wax-print fabric: short-sleeved shirt and trousers in bright yellow, red, blue or brown patterns."
+  },
+  {
+    "id": 1665,
+    "title": "124. The Invisible Men",
+    "dressCode": "Men in plain grey, black or dark brown zip-up hoodies with the hood up, and matching sweatpants; anonymous, head covered."
+  },
+  {
+    "id": 1652,
+    "title": "123. Violet Virus",
+    "dressCode": "Men in dark business suits (black, charcoal, pinstripe) with a white or pale shirt and a purple or violet tie."
+  },
+  {
+    "id": 1639,
+    "title": "122. Meuf",
+    "dressCode": "Young women carrying a large Longchamp-style nylon tote bag (black, navy, grey, white) on the arm, in a padded vest or jacket over a scarf, skinny jeans; hair pulled up in a high bun or messy updo."
+  },
+  {
+    "id": 1626,
+    "title": "121. Boubou Logo",
+    "dressCode": "African women wrapped in a large patterned shawl or boubou (mud-cloth and wax prints in rust, brown, black, cream) over colourful printed dresses, with a matching headwrap."
+  },
+  {
+    "id": 1613,
+    "title": "120. New Skool",
+    "dressCode": "Boys in Adidas-style track jackets with three stripes on the sleeves (black, brown, blue, red, white), zipped up, sometimes a hoodie under; short hair, school backpacks."
+  },
+  {
+    "id": 1600,
+    "title": "119. Intellectuals",
+    "dressCode": "Older men in a dark, long wool overcoat and a brimmed felt hat (fedora), with a scarf; grey hair and beards, glasses, sober."
+  },
+  {
+    "id": 1587,
+    "title": "118. Yummie Mummies",
+    "dressCode": "Mothers in grey, taupe and black layers: long jersey tops or dresses, leather or suede jackets, leggings or skinny jeans, a big slouchy leather handbag, scarves; highlighted long blonde hair."
+  },
+  {
+    "id": 1574,
+    "title": "117. Holly Hobbies",
+    "dressCode": "Young women in layered casual-indie clothes: loose floral or plaid blouses and tops under black cardigans or jackets, beanie hats, long necklaces, skinny jeans; long hair with a side fringe."
+  },
+  {
+    "id": 1561,
+    "title": "116. VIPs",
+    "dressCode": "Young men in going-out clothes: a black or white fitted shirt with a skinny tie, sometimes a waistcoat, dark jeans or trousers with a belt; short gelled hair, hands on hips."
+  },
+  {
+    "id": 1548,
+    "title": "115. Fluffies",
+    "dressCode": "People in full-body furry animal onesies or costumes (bear, lion, panda, leopard, pig, dalmatian, ladybird) with ears on the hood."
+  },
+  {
+    "id": 1535,
+    "title": "114. Sisters of Love",
+    "dressCode": "Older women (nuns) in dark navy or black skirt suits or jackets with a white blouse, sometimes a veil; short grey hair, small cross or pin."
+  },
+  {
+    "id": 1522,
+    "title": "113. The Old Boys Network",
+    "dressCode": "Older men in navy double-breasted blazers with gold buttons, a striped or club tie, and coloured (yellow, beige, red) or grey trousers; grey hair, old-money look."
+  },
+  {
+    "id": 1509,
+    "title": "112. Sapeurs",
+    "dressCode": "Congolese sapeurs: sharp, colourful three-piece suits (white, cream, pale blue, pinstripe, patterned), pocket squares, ties, canes; dapper and flamboyant."
+  },
+  {
+    "id": 1496,
+    "title": "111. Gitanes",
+    "dressCode": "Women with headscarves or long dark hair in layered, colourful clothes: cardigans and knits (orange, purple, striped) over tops, long patterned or tiered skirts, crossbody bags."
+  },
+  {
+    "id": 1483,
+    "title": "110. Tektonik",
+    "dressCode": "Teenage boys in fitted graphic T-shirts (black, blue, white, purple with bold prints), skinny jeans with a belt; asymmetric emo-style fringe, spiky or dyed hair."
+  },
+  {
+    "id": 1470,
+    "title": "109. Les filles du 7eme",
+    "dressCode": "Young Parisian women with long light-brown or blonde hair in a black or grey cardigan over a striped or plain top, jeans, and a large tan leather handbag on the arm."
+  },
+  {
+    "id": 1457,
+    "title": "108. Boubou",
+    "dressCode": "West African men in long, wide embroidered boubou robes in shiny damask fabric (white, pale blue, green, yellow, teal, royal blue), sometimes with a matching cap."
+  },
+  {
+    "id": 1444,
+    "title": "107. Ghetto Fabs",
+    "dressCode": "Young men in hip-hop streetwear: printed hoodies and zip jackets with all-over graphics, white or graphic tees, baggy jeans, fitted caps worn high or sideways, chains."
+  },
+  {
+    "id": 1431,
+    "title": "106. Stars",
+    "dressCode": "Young women in long, strappy maxi or summer dresses with bold prints (tropical, animal, paisley) in bright colours; long hair."
+  },
+  {
+    "id": 1418,
+    "title": "105. Flexmanagers",
+    "dressCode": "Business men in a dark suit with an open-collar shirt (no tie), a laptop bag over the shoulder or in hand; short neat hair."
+  },
+  {
+    "id": 1405,
+    "title": "104. Commandos",
+    "dressCode": "Young children in camouflage clothes: camo jackets, T-shirts, sweaters and trousers in green, beige, grey or urban camo; hands on hips."
+  },
+  {
+    "id": 1392,
+    "title": "103.  Moslimas",
+    "dressCode": "Young women in a fitted hijab (black, grey, white, blue) with long, layered tops or tunics, fitted cardigans or vests, and jeans or long skirts; arms crossed."
+  },
+  {
+    "id": 1379,
+    "title": "102. Hipsters",
+    "dressCode": "Young people in bright 80s/90s retro: shiny colour-block windbreakers, patterned vintage jackets and sweaters, neon colours, snapback caps worn high, skinny jeans; playful and loud."
+  },
+  {
+    "id": 1366,
+    "title": "101. Dutch Family",
+    "dressCode": "Middle-aged and older women in practical outdoor rain jackets (orange, red, yellow, lime, light blue, black) with a small backpack, trousers; short hair, sporty holiday look."
+  },
+  {
+    "id": 1353,
+    "title": "100. Cocktails & Dreams",
+    "dressCode": "Young women in party summer wear: bandeau, tube or halter tops and bikini tops in bright colours, very short denim shorts or hot pants, colourful belts and bracelets."
+  },
+  {
+    "id": 1340,
+    "title": "099. Neighbours",
+    "dressCode": "Older men in beige or khaki multi-pocket safari/fishing vests over a checked shirt, beige trousers; grey hair, glasses."
+  },
+  {
+    "id": 1327,
+    "title": "098. Liberated",
+    "dressCode": "Young men in a deep V-neck T-shirt in a single colour (blue, grey, white, brown, orange, mint), skinny jeans with a belt; short styled hair, slim."
+  },
+  {
+    "id": 1314,
+    "title": "097. Backpackers",
+    "dressCode": "Backpackers carrying big trekking rucksacks with gear strapped on, in outdoor clothes (fleece, hoodies, T-shirts, cargo trousers), hats, beanies or bandanas; travel-worn."
+  },
+  {
+    "id": 1301,
+    "title": "096. Cassettes Gang",
+    "dressCode": "Young people in loud, all-over psychedelic prints: neon patterned T-shirts, sweaters and hoodies with geometric or tie-dye motifs in purple, pink, green and yellow."
+  },
+  {
+    "id": 1288,
+    "title": "095. City Girls",
+    "dressCode": "Young women in dark skirt suits (black or navy fitted blazer and pencil skirt) with a white or pastel blouse; hair tied back, office look."
+  },
+  {
+    "id": 1275,
+    "title": "094. Main Floor",
+    "dressCode": "Young Asian women in cute layered outfits (short dresses, cardigans, peacoats, patterned tops, tights) holding a designer handbag in front of them; long straight dark hair."
+  },
+  {
+    "id": 1262,
+    "title": "093. Bonkerboys",
+    "dressCode": "Young men in a black or navy double-breasted wool peacoat, collar up, jeans; shaggy fringe or tousled mid-length hair."
+  },
+  {
+    "id": 1249,
+    "title": "092. Pin-ups",
+    "dressCode": "Women in 1950s pin-up style: fitted pencil skirts (black, navy, red), blouses with bows or polka dots, wide waist belts, victory-roll hair, red lipstick, hair accessories."
+  },
+  {
+    "id": 1236,
+    "title": "091. Bears",
+    "dressCode": "Big, heavy-set men with beards or stubble and short or shaved hair, in a polo shirt or T-shirt (striped, solid colours) tucked or loose over jeans."
+  },
+  {
+    "id": 1223,
+    "title": "090. Geeks",
+    "dressCode": "Young men in nerdy-smart layers: a fine-knit cardigan or V-neck sweater over a checked or plain collared shirt, sometimes a scarf, slim trousers; thick-framed glasses, side-parted or messy hair."
+  },
+  {
+    "id": 1210,
+    "title": "089. Miss Shapes",
+    "dressCode": "Young lesbian/butch women with short, spiky or dyed hair (often red or bleached) in fitted T-shirts or tanks, big keffiyeh or patterned scarves around the neck, studded belts and jeans."
+  },
+  {
+    "id": 1197,
+    "title": "088. Flowerpower",
+    "dressCode": "Middle-aged men with longish hair in loud flower-print button-up shirts (in all colours), untucked or tucked into jeans."
+  },
+  {
+    "id": 1184,
+    "title": "087. Pocketmonsters",
+    "dressCode": "Young men in zip-up hoodies with bold all-over prints (camo, checkerboard, cartoon, houndstooth, patterned) with the hood pulled up, jeans."
+  },
+  {
+    "id": 1171,
+    "title": "086. Chefs de Confort Moderne",
+    "dressCode": "Men in casual colour-block T-shirts (orange, red, yellow, grey, blue) with light trousers or cargo shorts; short hair, everyday French family-man look."
+  },
+  {
+    "id": 1158,
+    "title": "085. Femmes Actuelles",
+    "dressCode": "Middle-aged women in sleeveless, knee-length summer dresses or tunics (khaki, olive, beige, animal or ethnic prints), a small handbag, arms crossed; short hair."
+  },
+  {
+    "id": 1145,
+    "title": "084. Jenny d’Enfer",
+    "dressCode": "Teenage girls in a tight tank top or T-shirt (black, pink, white) with glittery graphics or text, low-rise flared jeans with a belt; long hair, hoop earrings."
+  },
+  {
+    "id": 1132,
+    "title": "083. Zazous",
+    "dressCode": "Older, artistic women in eclectic, colourful mismatched clothes: patterned dresses and tunics, shawls, vests, statement belts and bags; wild grey, red or curly hair."
+  },
+  {
+    "id": 1119,
+    "title": "082. French Touch",
+    "dressCode": "Young men in a black leather biker jacket over a white or Breton-striped T-shirt, skinny jeans; tousled mid-length hair, Paris rock look."
+  },
+  {
+    "id": 1106,
+    "title": "081. Surfeurs",
+    "dressCode": "Young men shirtless with a tanned body, in long patterned board shorts (floral, check, camo) worn low with underwear showing; sun-bleached shaggy hair."
+  },
+  {
+    "id": 1092,
+    "title": "080. Yupstergirls",
+    "dressCode": "Women in a long dark coat, trench or military jacket (black, navy, olive, red, camel) worn open over a simple V-neck tee, jeans, hands in pockets; long hair."
+  },
+  {
+    "id": 1079,
+    "title": "079. Yupsterboys",
+    "dressCode": "Young men in a zip-up hoodie or casual jacket (orange, grey, navy, red, blue, green) open over a graphic T-shirt, with a messenger bag strap across the chest, jeans; stubble, messy hair."
+  },
+  {
+    "id": 1066,
+    "title": "078. Charitas",
+    "dressCode": "Well-off older women in skirt suits and tailored jackets (black, white, beige, tweed, trimmed with contrast piping), pearl necklaces, a structured handbag on the arm; coiffed blonde or dark hair."
+  },
+  {
+    "id": 1053,
+    "title": "077. Elders",
+    "dressCode": "Men (church elders) in a black suit with a white shirt and black or dark tie; short grey or no hair, very sober."
+  },
+  {
+    "id": 1040,
+    "title": "076. Praise",
+    "dressCode": "African women in church outfits of bold wax print or kente fabric: fitted blouse and long wrap skirt with matching headwrap, a handbag in front; colourful and formal."
+  },
+  {
+    "id": 1027,
+    "title": "075. Juffers",
+    "dressCode": "Young women in a plain coloured crewneck sweater (pink, green, black, red, white) with a collared blouse underneath, and a knee-length skirt; hair tied back, modest, neat."
+  },
+  {
+    "id": 1014,
+    "title": "074. Volunteers",
+    "dressCode": "Older women with short grey hair in a knitted or quilted sleeveless vest or waistcoat (red, green, brown, patterned) over a blouse or turtleneck, dark trousers."
+  },
+  {
+    "id": 1001,
+    "title": "073. Worldly Gentlemen",
+    "dressCode": "Men (priests and pastors) in a sport jacket or blazer (grey check, beige, navy, black) over a clerical collar or open shirt, arms crossed; short hair, glasses."
+  },
+  {
+    "id": 988,
+    "title": "072. New Singers",
+    "dressCode": "Men in a coloured dress shirt (yellow, blue, purple, orange, white) with a patterned tie, dark trousers with a belt; short hair, church-going look."
+  },
+  {
+    "id": 975,
+    "title": "071. Reli-Rockers",
+    "dressCode": "Young men with long straight hair in black metal/heavy-rock band T-shirts with printed artwork, black jeans; wristbands, very pale."
+  },
+  {
+    "id": 962,
+    "title": "070. Emos",
+    "dressCode": "Teenagers in a hoodie or zip jacket (green, black, grey, striped) over a band tee, jeans or checked trousers with studded belts, lots of wristbands and bracelets, chunky necklaces; side-swept fringe, some dyed hair."
+  },
+  {
+    "id": 949,
+    "title": "069. Little Brides",
+    "dressCode": "Young girls in white or cream first-communion dresses, with hands folded; hair in pigtails or pulled back."
+  },
+  {
+    "id": 936,
+    "title": "068. Formers",
+    "dressCode": "Older artistic women in black or charcoal layered, draped avant-garde clothes (Japanese-designer style), big necklaces, statement glasses; short grey hair."
+  },
+  {
+    "id": 911,
+    "title": "067. Early Birds",
+    "dressCode": "Older men in a plain wool V-neck or crewneck sweater in a single colour (lilac, orange, red, yellow, navy, blue, green) over a collared shirt, chinos; white or grey hair."
+  },
+  {
+    "id": 898,
+    "title": "066. Babes",
+    "dressCode": "Young women in a bikini (in bright colours or prints), tanned; long hair, hands on hips or arms crossed."
+  },
+  {
+    "id": 885,
+    "title": "065. Carry Daddies",
+    "dressCode": "Young fathers carrying a baby in a front baby carrier, in casual clothes (hoodie, sweater or jacket, jeans); stubble, messy hair."
+  },
+  {
+    "id": 872,
+    "title": "064. Brandies",
+    "dressCode": "Young men in a fitted blazer (black, tweed, beige, check) over a V-neck T-shirt or graphic tee, slim jeans; styled short hair, stylish-casual."
+  },
+  {
+    "id": 859,
+    "title": "063. Naturals",
+    "dressCode": "Young women in a plain, simple tank top or T-shirt (grey, black, white, khaki, striped) with jeans; no make-up, loose natural hair, effortless."
+  },
+  {
+    "id": 846,
+    "title": "062. Hustlas",
+    "dressCode": "West African young men in colourful printed shirts and tunics (wax prints, tie-dye, patterns), a crossbody bag, cap or hat; lots of bracelets and necklaces."
+  },
+  {
+    "id": 833,
+    "title": "061. Black Widows",
+    "dressCode": "Older African women dressed entirely in black mourning clothes: black blouse, black wrap skirt, black headwrap, with a long white bead or shell necklace."
+  },
+  {
+    "id": 820,
+    "title": "060. Social Club",
+    "dressCode": "Older Cape Verdean men in a flat cap or trilby, a checked or plain short-sleeved shirt, light or coloured trousers; grey moustaches."
+  },
+  {
+    "id": 805,
+    "title": "059. Mininas",
+    "dressCode": "Young African women in a tank top (bright colours) with several layered, colourful ruffled or beaded skirts and aprons tied around the hips, hands on hips; headwraps."
+  },
+  {
+    "id": 792,
+    "title": "058. Toppers",
+    "dressCode": "Older men in a sport jacket or blazer (tweed, check, brown, navy, grey) with a patterned tie and a trilby or felt hat; grey hair, old-fashioned gentleman."
+  },
+  {
+    "id": 779,
+    "title": "057. Speedfreax",
+    "dressCode": "Young Asian men in denim jackets or dark jackets with a crossbody strap across the chest, graphic tees, jeans; spiky, gelled hair."
+  },
+  {
+    "id": 766,
+    "title": "056. Homeboys",
+    "dressCode": "Young men in hip-hop outerwear: parkas and puffer jackets with fur-trimmed hoods (black, navy, white, red, khaki), oversized sports jerseys or tees with numbers, beanies or caps, chains."
+  },
+  {
+    "id": 753,
+    "title": "055. Fly Girls",
+    "dressCode": "Young women in matching velour or cotton tracksuits (pastel blue, beige, grey, white, brown) zipped up, hair pulled back in a tight ponytail or braids, hoop earrings."
+  },
+  {
+    "id": 740,
+    "title": "054. Corpos",
+    "dressCode": "Young men in a light-blue or white button-down oxford shirt, sleeves rolled, untucked, with bright red or salmon trousers; floppy side-parted hair, student-fraternity look."
+  },
+  {
+    "id": 727,
+    "title": "053. Ghoullies",
+    "dressCode": "Goth women in black corsets, lace, velvet and PVC, long black dresses or skirts, lace gloves, chokers and silver jewellery; long black or dark-red hair, pale make-up, dark lipstick."
+  },
+  {
+    "id": 714,
+    "title": "052. Skins",
+    "dressCode": "Men with shaved heads in a Fred Perry-style polo shirt with tipped collar (black, navy, burgundy, olive) and thin braces (suspenders), slim jeans."
+  },
+  {
+    "id": 701,
+    "title": "051. Sleeves",
+    "dressCode": "Men in a white ribbed tank top (wifebeater) showing full tattoo sleeves on the arms, jeans; shaved heads or caps/beanies."
+  },
+  {
+    "id": 688,
+    "title": "050. Ecopunks",
+    "dressCode": "Young punks in worn, dark, drab clothing: faded hoodies and sweaters in grey, brown and black, cut-off sleeves, army trousers, patches, small piercings; shaved sides or short hair."
+  },
+  {
+    "id": 675,
+    "title": "049. Teknohippies",
+    "dressCode": "Young ravers in bright, clashing colours: fitted striped or printed tops and tees, colourful skirts and trousers, belts, wristbands; bright dyed hair (pink, red, blue) in bunches or dreads."
+  },
+  {
+    "id": 662,
+    "title": "048. Habibties",
+    "dressCode": "Young women (students) in white lab coats buttoned up, a dark or black top underneath, a backpack strap; hair in ponytails or braids."
+  },
+  {
+    "id": 649,
+    "title": "047. Mothercare",
+    "dressCode": "North African women in long djellabas or robes (burgundy, purple, black, orange, blue) and a headscarf, carrying a baby on the back or hip in a shawl."
+  },
+  {
+    "id": 636,
+    "title": "046. Musulman",
+    "dressCode": "Older Moroccan men in a long hooded djellaba (brown, green, beige, black, blue, red, yellow) with the pointed hood up."
+  },
+  {
+    "id": 623,
+    "title": "045. The Girls from Ipanema",
+    "dressCode": "Older women on the beach in bikinis and swimsuits with shorts or a sarong, a sun hat or visor, sunglasses and a bum bag; tanned."
+  },
+  {
+    "id": 610,
+    "title": "044. Gentlemen",
+    "dressCode": "Older men on the beach, shirtless with bellies, in swim trunks (white, blue, purple, yellow, black); grey hair."
+  },
+  {
+    "id": 597,
+    "title": "043. Bundaboys",
+    "dressCode": "Men in small tight swim briefs (Speedo-style) in bright colours, muscular and tanned, hands on hips; short hair."
+  },
+  {
+    "id": 584,
+    "title": "042. Pitboys",
+    "dressCode": "Young men in sleeveless tank tops or muscle shirts with prints or logos (black, navy, red, beige), muscular arms; very short hair."
+  },
+  {
+    "id": 571,
+    "title": "041. Surfistas",
+    "dressCode": "Men shirtless with arms crossed, in long patterned surf board shorts (floral, tropical, stripes), sunglasses, necklaces or watches; tanned."
+  },
+  {
+    "id": 558,
+    "title": "040. Chickies",
+    "dressCode": "Young women in a spaghetti-strap camisole or tank top (black, white, khaki) with very short shorts or a mini skirt (denim, printed), a crossbody bag; long dark hair."
+  },
+  {
+    "id": 545,
+    "title": "039. Workers",
+    "dressCode": "Young men shirtless and lean-muscular, in jeans or shorts, hands behind the back; short cropped hair."
+  },
+  {
+    "id": 532,
+    "title": "038. Brats",
+    "dressCode": "Young boys shirtless with arms crossed, in shorts or track trousers; short cropped hair."
+  },
+  {
+    "id": 519,
+    "title": "037. Chairmen",
+    "dressCode": "Older Chinese men in a buttoned-up Mao/Zhongshan jacket (navy, grey-blue, black) with a stand collar; short grey or thinning hair."
+  },
+  {
+    "id": 506,
+    "title": "036. Business Development Executives",
+    "dressCode": "Young Chinese men in a checked or beige casual jacket over a collared shirt, dark trousers; neat short hair, glasses."
+  },
+  {
+    "id": 493,
+    "title": "035. Rockers",
+    "dressCode": "Young Chinese men with long, straight black hair in black jackets (leather, peacoat, denim), dark jeans; all dark, rock style."
+  },
+  {
+    "id": 480,
+    "title": "034. Scream",
+    "dressCode": "Young Chinese punks in denim or leather jackets over band or graphic tees, jeans, chains; dyed pink, red or bleached hair."
+  },
+  {
+    "id": 467,
+    "title": "033. Students",
+    "dressCode": "Chinese school students in shiny colour-block school tracksuit jackets (blue, white, red, purple, teal) zipped up, with a backpack; short hair, hands on hips."
+  },
+  {
+    "id": 454,
+    "title": "032. Showpieces",
+    "dressCode": "Toddlers in hand-knitted, colourful patterned sweaters and cardigans (stripes, motifs, bright wool), bowl haircuts."
+  },
+  {
+    "id": 441,
+    "title": "031. Chillers",
+    "dressCode": "Teenage boys with brightly dyed short hair (green, blue, red, bleached) in oversized skate or graphic long-sleeve tees and sweatshirts, baggy trousers, backpack straps."
+  },
+  {
+    "id": 428,
+    "title": "030. Roffas",
+    "dressCode": "Teenage girls in a white or black tank top or crop top, baggy white or black track trousers or cargo pants, arms crossed; hair pulled back in buns or braids, hoop earrings."
+  },
+  {
+    "id": 415,
+    "title": "029. Kils",
+    "dressCode": "Teenage boys in sporty nylon jackets and windbreakers (Nike, navy, black, grey), zipped up; very short hair."
+  },
+  {
+    "id": 402,
+    "title": "028. Lotus",
+    "dressCode": "Young Hindustani women in a black leather or dark jacket over a white shirt or top, dark trousers, one hand raised in a fist; long black hair."
+  },
+  {
+    "id": 389,
+    "title": "027. Fans",
+    "dressCode": "Teenage boys in football club replica shirts (Feyenoord and other clubs, with sponsor logos) in team colours; short hair."
+  },
+  {
+    "id": 376,
+    "title": "026. Preppies",
+    "dressCode": "Teenage girls in a dark denim jacket over a fitted T-shirt or top (white, black, pink, purple) with jeans, hands on hips; hair pulled back."
+  },
+  {
+    "id": 363,
+    "title": "025. Grannies",
+    "dressCode": "Older women in a knee-length beige, pink or blue raincoat or trench coat, sometimes with a silk scarf; short, set white hair, glasses."
+  },
+  {
+    "id": 350,
+    "title": "024. Bouncers",
+    "dressCode": "Big men in black leather jackets over a black turtleneck or black shirt, hands folded in front; shaved heads or very short hair."
+  },
+  {
+    "id": 337,
+    "title": "023. Dreads",
+    "dressCode": "Young people with long dreadlocks, bare-chested, in low-slung jeans or trousers."
+  },
+  {
+    "id": 324,
+    "title": "022. Butchers",
+    "dressCode": "Older men in a white butcher's or lab coat over a shirt and tie; short grey hair."
+  },
+  {
+    "id": 311,
+    "title": "021. Leathermen",
+    "dressCode": "Gay leather scene: black leather motorcycle cap, black leather jacket open over a bare chest, harness or chain, leather or denim trousers; moustaches."
+  },
+  {
+    "id": 298,
+    "title": "020. Madam",
+    "dressCode": "Older women in long fur coats (mink, fox, persian lamb) in black, brown, cream or grey; coiffed hair, jewellery."
+  },
+  {
+    "id": 285,
+    "title": "019. Vagabonds",
+    "dressCode": "Homeless people in worn, layered, mismatched clothes: old jackets and coats, knit sweaters, vests, scarves and hats; unkempt hair and beards."
+  },
+  {
+    "id": 272,
+    "title": "018. Mohawks",
+    "dressCode": "Punks with tall spiked mohawks (sometimes dyed red or pink), in black band T-shirts, sleeveless shirts, studded or leather jackets, black jeans; seen in profile."
+  },
+  {
+    "id": 259,
+    "title": "017. Smas",
+    "dressCode": "Young black women in black leather or shiny black jackets and tops, black trousers, gold jewellery; hair in bunches, puffs or braids, hand on hip."
+  },
+  {
+    "id": 246,
+    "title": "016. Manipulators",
+    "dressCode": "Young men with a sculpted, muscular bare chest, seen from the chest up; short gelled or bleached hair."
+  },
+  {
+    "id": 233,
+    "title": "015. Tattoo Babes",
+    "dressCode": "Young women with a bare upper body, arms crossed over the chest, small visible tattoos, jeans; short or tied-back hair."
+  },
+  {
+    "id": 220,
+    "title": "014. Moroccies",
+    "dressCode": "Young Moroccan-Dutch men in black leather jackets over colourful, busy patterned knit sweaters (Coogi-style) in red, green, blue and gold, jeans; short dark hair."
+  },
+  {
+    "id": 207,
+    "title": "013. Supporters",
+    "dressCode": "Young men (football hooligans) in dark bomber or harrington jackets (navy, black, green) with a striped or club scarf, caps, jeans; short hair."
+  },
+  {
+    "id": 194,
+    "title": "012. Hijabi Sisters",
+    "dressCode": "Young women in a patterned or plain hijab (often printed with beige, brown, black) with long coats, cardigans and modest long skirts or dresses."
+  },
+  {
+    "id": 181,
+    "title": "011. Bonitas",
+    "dressCode": "Young women in fitted, long-sleeved shirts and blouses with 70s-style prints (stripes, geometric, animal, paisley) in brown, orange, blue and pink, flared trousers; long dark hair."
+  },
+  {
+    "id": 168,
+    "title": "010. Skaters",
+    "dressCode": "Teenage boys in big, colour-block puffer or sailing jackets (Tommy Hilfiger, Nautica, DKNY style: navy, red, yellow, white), logo sweaters, baggy jeans, beanies."
+  },
+  {
+    "id": 155,
+    "title": "009. Young Executives",
+    "dressCode": "Boys in a dark school-style blazer with a white shirt and a patterned tie; neat short hair."
+  },
+  {
+    "id": 142,
+    "title": "008. Young Activists",
+    "dressCode": "Children in white T-shirts printed with environmental and activist slogans and images (WWF panda, \"No Nature\"), with beanies and woolly hats."
+  },
+  {
+    "id": 129,
+    "title": "007. Game Boys",
+    "dressCode": "Young boys in cartoon-character T-shirts and sweaters (Mickey Mouse, Bambi, Taz, Ninja Turtles) in bright colours; short hair or bowl cuts."
+  },
+  {
+    "id": 116,
+    "title": "006. Teenagers",
+    "dressCode": "Teenage girls in 90s clothes: fitted tank tops, baby tees and striped tops, mini skirts (glitter, plaid, PVC) or jeans; hair clips, butterfly slides."
+  },
+  {
+    "id": 103,
+    "title": "005. Combat Girls",
+    "dressCode": "Young women with very short cropped hair in plain fitted T-shirts or tank tops (black, navy, khaki, grey), army trousers or jeans, chains; tough, arms crossed."
+  },
+  {
+    "id": 90,
+    "title": "004. Bimbos",
+    "dressCode": "Young women with long, bleached blonde hair in a tight white or cream top (knitted, lace, cropped) and black trousers or jeans; heavy make-up."
+  },
+  {
+    "id": 77,
+    "title": "003. Gabberbitches",
+    "dressCode": "Gabber girls seen in profile: hair scraped back in a tight ponytail or braid with the underneath shaved, sports bra or crop top, a tracksuit jacket tied around the waist, track pants."
+  },
+  {
+    "id": 64,
+    "title": "002. Casual Queers",
+    "dressCode": "Men in a checked or plaid button-up shirt (red, blue, brown, grey) tucked into jeans with a belt; short cropped hair, clean-shaven."
+  },
+  {
+    "id": 16,
+    "title": "001. Gabbers",
+    "dressCode": "Young men with shaved or buzzed heads in shiny nylon track jackets zipped to the chin (Australian-style, bright multicolour patterns: red, purple, teal, black), piercings."
+  }
+]
