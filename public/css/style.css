@@ -15,8 +15,9 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; overflow: hidden; }
-body { background: #000; color: var(--ink); font-family: var(--sans); cursor: none; /* kiosk */ }
-body.debug-cursor { cursor: auto; }
+body { background: #000; color: var(--ink); font-family: var(--sans); }
+/* The mouse cursor hides after a few idle seconds (app.js), so it never sits on the kiosk screen. */
+body.cursor-idle, body.cursor-idle * { cursor: none; }
 button { font: inherit; color: inherit; }
 
 /* ---------- camera ---------- */
@@ -148,7 +149,6 @@ body[data-state="countdown"] #countdown { display: grid; }
 .grid .cell { position: absolute; overflow: hidden; background: var(--archive); } /* positioned by app.js */
 .grid img { display: block; width: 100%; height: 100%; object-fit: cover; animation: arrive .6s ease-out both; animation-delay: calc(var(--i) * 40ms); }
 @keyframes arrive { from { opacity: 0; } }
-.grid .cell.visitor img { position: absolute; max-width: none; object-fit: fill; } /* sized by app.js */
 
 /* ---------- hand cursors ---------- */
 #hand-cursors { position: fixed; inset: 0; z-index: 40; pointer-events: none; }

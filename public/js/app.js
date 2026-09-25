@@ -16,7 +16,6 @@ const MULTI_CYCLE_SECONDS = 14;
 let config = { countdownSeconds: 3, dwellMs: 1200, voiceLang: 'en-US', tribeNames: [], resultTtlMinutes: 20 };
 let state = 'idle';
 let visitorPhoto = null; // cut-out (or original) data URL, only while a result is on screen
-let visitorBox = null; // the person's size in that photo, so the grid never crops them
 let timers = [];
 
 // ================================================================ state
@@ -39,7 +38,6 @@ function clearTimers() {
 function toIdle() {
   clearTimers();
   visitorPhoto = null;
-  visitorBox = null;
   $('grid').replaceChildren();
   $('r-qr').replaceChildren();
   setState('idle');
@@ -101,18 +99,24 @@ function stageRect() {
   return { x: cx - size / 2, y: (sh - size) / 2, size };
 }
 
-// The same square, in (unmirrored) video pixels.
+// The captured square, in (unmirrored) video pixels: as tall as the camera
+// image (so a whole standing person always fits) and centred on the guide. Only
+// the part that is actually visible on screen is used (`visible`); anything
+// the visitor can't see, like bystanders beside the screen, is left out.
 function captureRect() {
   const g = geometry();
   const s = stageRect();
-  const side = s.size / g.scale;
-  const x = (g.sw - (s.x + s.size) - g.ox) / g.scale; // undo the mirror and the cover crop
-  const y = (s.y - g.oy) / g.scale;
-  return {
-    sx: Math.min(Math.max(0, x), g.vw - side),
-    sy: Math.min(Math.max(0, y), g.vh - side),
-    side: Math.min(side, g.vw, g.vh),
+  const side = Math.min(g.vw, g.vh);
+  const centreX = (g.sw - (s.x + s.size / 2) - g.ox) / g.scale; // undo the mirror and the cover crop
+  const sx = Math.min(Math.max(0, centreX - side / 2), g.vw - side);
+  const sy = (g.vh - side) / 2;
+  const visible = {
+    x0: Math.max(sx, -g.ox / g.scale),
+    x1: Math.min(sx + side, (g.sw - g.ox) / g.scale),
+    y0: Math.max(sy, -g.oy / g.scale),
+    y1: Math.min(sy + side, (g.sh - g.oy) / g.scale),
   };
+  return { sx, sy, side, visible };
 }
 
 function placeStage() {
@@ -121,12 +125,19 @@ function placeStage() {
   document.documentElement.style.setProperty('--bar-h', `${MirrorLayout.barHeight(innerWidth, innerHeight)}px`);
 }
 
-// Square, unmirrored still (text on clothing reads the right way round).
+// Square, unmirrored still (text on clothing reads the right way round). Any
+// part of the square that wasn't visible on screen (e.g. the sides, on a
+// portrait screen with a landscape camera) is filled with the archive grey,
+// which the segmenter treats as background.
 function grabSquare() {
-  const { sx, sy, side } = captureRect();
+  const { sx, sy, side, visible: v } = captureRect();
   const canvas = document.createElement('canvas');
   canvas.width = canvas.height = CAPTURE_SIZE;
-  canvas.getContext('2d').drawImage(video, sx, sy, side, side, 0, 0, CAPTURE_SIZE, CAPTURE_SIZE);
+  const ctx = canvas.getContext('2d');
+  const f = CAPTURE_SIZE / side;
+  ctx.fillStyle = '#F3F3F3';
+  ctx.fillRect(0, 0, CAPTURE_SIZE, CAPTURE_SIZE);
+  ctx.drawImage(video, v.x0, v.y0, v.x1 - v.x0, v.y1 - v.y0, (v.x0 - sx) * f, (v.y0 - sy) * f, (v.x1 - v.x0) * f, (v.y1 - v.y0) * f);
   return canvas;
 }
 
@@ -290,6 +301,7 @@ async function capture() {
       }
       marks.match = performance.now() - t0;
       console.info(`[timing] AI match ${Math.round(marks.match)}ms`);
+      logTokens(data.usage);
       return data;
     })
     .finally(() => clearTimeout(timeout));
@@ -308,14 +320,13 @@ async function capture() {
     const now = performance.now();
     marks.cutout = now - t0;
     console.info(`[timing] cut-out ${cut ? 'ready' : 'skipped'} ${Math.round(now - t0)}ms (segmentation ${Math.round(now - s0)}ms)`);
-    post('/api/cutout', cut ? { captureId, image: cut.dataUrl, box: cut.box } : { captureId, failed: true }).catch(() => {});
-    return cut || { dataUrl: original, box: null };
+    post('/api/cutout', cut ? { captureId, image: cut } : { captureId, failed: true }).catch(() => {});
+    return cut || original;
   })();
 
   try {
-    const [data, photoOut] = await Promise.all([match, visitor]);
-    visitorPhoto = photoOut.dataUrl;
-    visitorBox = photoOut.box;
+    const [data, src] = await Promise.all([match, visitor]);
+    visitorPhoto = src;
     marks.bothReady = performance.now() - t0;
     await preload(data.matches[0].images);
     marks.photosLoaded = performance.now() - t0;
@@ -328,25 +339,41 @@ async function capture() {
   }
 }
 
+// Gemini's token count for this capture's single AI call.
+function logTokens(usage) {
+  if (!usage) return;
+  const n = (v) => (v || 0).toLocaleString('en-US');
+  console.log(
+    `%c[tokens] Gemini: ${n(usage.total)} total`,
+    'font-weight: bold',
+    `\n  input (prompt + photo): ${n(usage.prompt)}` +
+      `\n  output (the answer):    ${n(usage.output)}` +
+      `\n  thinking:               ${n(usage.thinking)}`
+  );
+}
+
 // End-to-end timer: from the photo being taken to the result actually being
 // painted on screen (two animation frames after it's rendered), with where the
-// time went.
+// time went. A hidden page never paints, so after 1s it logs anyway and says so.
 function logTotal(t0, marks, title) {
-  requestAnimationFrame(() =>
-    requestAnimationFrame(() => {
-      const ms = (v) => `${(v / 1000).toFixed(2)}s`;
-      const total = performance.now() - t0;
-      console.log(
-        `%c[timing] capture → result on screen: ${ms(total)}`,
-        'font-weight: bold; font-size: 13px',
-        `\n  AI match + series fetch: ${ms(marks.match)}` +
-          `\n  background removal:      ${ms(marks.cutout)}  (in parallel)` +
-          `\n  loading archive photos:  ${ms(marks.photosLoaded - marks.bothReady)}` +
-          `\n  rendering the result:    ${ms(total - marks.photosLoaded)}` +
-          `\n  matched: ${title}`
-      );
-    })
-  );
+  let done = false;
+  const log = (painted) => {
+    if (done) return;
+    done = true;
+    const ms = (v) => `${(v / 1000).toFixed(2)}s`;
+    const total = performance.now() - t0;
+    console.log(
+      `%c[timing] capture → result on screen: ${ms(total)}`,
+      'font-weight: bold; font-size: 13px',
+      `\n  AI match + series fetch: ${ms(marks.match)}` +
+        `\n  background removal:      ${ms(marks.cutout)}  (in parallel)` +
+        `\n  loading archive photos:  ${ms(marks.photosLoaded - marks.bothReady)}` +
+        `\n  rendering the result:    ${painted ? ms(total - marks.photosLoaded) : 'not measured (page was hidden)'}` +
+        `\n  matched: ${title}`
+    );
+  };
+  requestAnimationFrame(() => requestAnimationFrame(() => log(true)));
+  setTimeout(() => log(false), 1000);
 }
 
 // Let the grid arrive together rather than popping in tile by tile.
@@ -450,9 +477,7 @@ function layoutGrid() {
   if (!cells.length) return;
   const bar = MirrorLayout.barHeight(innerWidth, innerHeight);
   document.documentElement.style.setProperty('--bar-h', `${bar}px`);
-  const gridW = innerWidth;
-  const gridH = innerHeight - bar;
-  const { rects } = MirrorLayout.tiles(cells.length, gridW, gridH);
+  const { rects } = MirrorLayout.tiles(cells.length, innerWidth, innerHeight - bar);
   cells.forEach((cell, k) => {
     const r = rects[k];
     Object.assign(cell.style, {
@@ -462,12 +487,6 @@ function layoutGrid() {
       width: `calc(${r.w * 100}% + 1px)`,
       height: `calc(${r.h * 100}% + 1px)`,
     });
-    const img = cell.classList.contains('visitor') && cell.querySelector('img');
-    if (img) {
-      // Same no-crop fit as the downloadable PNG.
-      const f = MirrorLayout.fitVisitor(r.w * gridW, r.h * gridH, visitorBox);
-      Object.assign(img.style, { width: `${f.size}px`, height: `${f.size}px`, left: `${f.x}px`, top: `${f.y}px` });
-    }
   });
 }
 
@@ -500,9 +519,19 @@ document.addEventListener('keydown', (e) => {
 
 if (params.has('mouse')) {
   // Testing aid: the mouse pointer acts as a tracked hand.
-  document.body.classList.add('debug-cursor');
   addEventListener('pointermove', (e) => (pointers = [{ x: e.clientX, y: e.clientY }]));
 }
+
+// The mouse cursor shows while it moves and hides after 3 idle seconds.
+let cursorTimer = null;
+function wakeCursor() {
+  document.body.classList.remove('cursor-idle');
+  clearTimeout(cursorTimer);
+  cursorTimer = setTimeout(() => document.body.classList.add('cursor-idle'), 3000);
+}
+addEventListener('pointermove', wakeCursor);
+addEventListener('pointerdown', wakeCursor);
+wakeCursor();
 
 const status = (msg) => ($('status').textContent = msg || '');
 
@@ -518,6 +547,12 @@ async function boot() {
   });
   placeStage();
 
+  // Both models load at startup, alongside the camera rather than after it, so
+  // they're ready before the first capture even if the camera is slow to start.
+  const models = FilesetResolver.forVisionTasks('/vendor/mediapipe/wasm').then((fileset) =>
+    Promise.allSettled([params.has('mouse') ? null : startHands(fileset), loadSegmenter(fileset)])
+  );
+
   try {
     await startCamera();
     placeStage();
@@ -525,9 +560,7 @@ async function boot() {
     status(`Camera unavailable: ${err.message}`);
   }
 
-  // Both models load at startup so they're ready before the first capture.
-  const fileset = await FilesetResolver.forVisionTasks('/vendor/mediapipe/wasm');
-  const [hands, seg] = await Promise.allSettled([params.has('mouse') ? null : startHands(fileset), loadSegmenter(fileset)]);
+  const [hands, seg] = await models;
   if (hands.status === 'rejected') {
     console.error(hands.reason);
     status('Hand tracking unavailable. Use voice or the space bar.');

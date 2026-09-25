@@ -10,7 +10,11 @@ const MODEL_CDN =
 const ARCHIVE_GREY = '#F3F3F3';
 const EDGE_BLUR_PX = 1.5; // softens hair and sleeve edges
 const MIN_PERSON = 0.03; // below 3% of the frame: nobody there, use the original
-const MAX_PERSON = 0.92; // the person may fill at most 92% of the square, leaving a margin
+// Where the models sit in the archive portraits, measured on 30 photos from 10
+// series (1994-2025): head 6% from the top, feet at 99%, figure 93% of the
+// frame's height, centred. The spread was small (top 4-7%, height 92-95%).
+const ARCHIVE_FRAME = { top: 0.06, bottom: 0.99, centreX: 0.5 };
+const MAX_UPSCALE = 2.5; // beyond this a far-away visitor would turn to mush
 
 let segmenter = null;
 
@@ -67,9 +71,9 @@ function personBox(fg, w, h) {
 }
 
 // photo: a square canvas holding the captured frame.
-// Resolves to { dataUrl, box } where the person is centred in the square and
-// box is their size as a fraction of it, or null if there's no usable person
-// mask (the caller then uses the original photo).
+// Resolves to a JPEG data URL with the person framed exactly like the archive
+// portraits, or null if there's no usable person mask (the caller then uses
+// the original photo).
 export async function cutOut(photo, quality = 0.9) {
   if (!segmenter) return null;
   const size = photo.width;
@@ -108,11 +112,9 @@ export async function cutOut(photo, quality = 0.9) {
   pc.filter = `blur(${EDGE_BLUR_PX}px)`;
   pc.drawImage(mask, 0, 0, size, size);
 
-  // ...moved to the centre of the square (and shrunk only if they nearly fill
-  // it), on the archive grey. The grey is flat, so moving leaves no seam.
-  const k = Math.min(1, MAX_PERSON / Math.max(box.w, box.h));
-  const dx = size / 2 - (box.x + box.w / 2) * size * k;
-  const dy = size / 2 - (box.y + box.h / 2) * size * k;
+  // ...scaled and moved so they're framed like the archive models, on the
+  // archive grey. The grey is flat, so moving leaves no seam.
+  const { k, dx, dy } = archiveFraming(box, size);
   const out = new OffscreenCanvas(size, size);
   const oc = out.getContext('2d');
   oc.fillStyle = ARCHIVE_GREY;
@@ -120,11 +122,28 @@ export async function cutOut(photo, quality = 0.9) {
   oc.drawImage(person, dx, dy, size * k, size * k);
 
   const blob = await out.convertToBlob({ type: 'image/jpeg', quality });
-  const dataUrl = await new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(blob);
   });
-  return { dataUrl, box: { w: box.w * k, h: box.h * k } };
+}
+
+// Scale k and offset (dx, dy) that put the person's head at ARCHIVE_FRAME.top,
+// their feet at ARCHIVE_FRAME.bottom, and their middle at centreX.
+// If the camera cut off their feet (or head), their full height is unknown, so
+// the size is kept and only the visible end is lined up with the archive.
+function archiveFraming(box, size) {
+  const feetCut = box.y + box.h > 0.97;
+  const headCut = box.y < 0.01;
+  let k = 1;
+  if (!feetCut && !headCut) k = (ARCHIVE_FRAME.bottom - ARCHIVE_FRAME.top) / box.h;
+  k = Math.min(MAX_UPSCALE, Math.max(0.3, k));
+
+  const dx = (ARCHIVE_FRAME.centreX - (box.x + box.w / 2) * k) * size;
+  const dy = headCut && !feetCut
+    ? (ARCHIVE_FRAME.bottom - (box.y + box.h) * k) * size // line up the feet
+    : (ARCHIVE_FRAME.top - box.y * k) * size; // line up the head
+  return { k, dx, dy };
 }

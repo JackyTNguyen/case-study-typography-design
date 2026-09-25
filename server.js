@@ -136,10 +136,10 @@ app.post('/api/match', async (req, res) => {
     // Collect the cut-out in parallel; fall back to the original if it never comes.
     const visitor = cutouts.take(captureId, CUTOUT_WAIT_MS).then((cut) => {
       console.log(`[cutout] ${cut ? `received ${Date.now() - started}ms after capture` : 'none, using the original photo'}`);
-      return cut || { buf: original, box: null };
+      return cut || original;
     });
 
-    const matches = await classify(jpeg);
+    const { matches, usage } = await classify(jpeg);
     const aiMs = Date.now() - started;
 
     const out = await Promise.all(
@@ -166,7 +166,8 @@ app.post('/api/match', async (req, res) => {
     );
 
     console.log(`[match] ${out.map((m) => m.title).join(' / ')} (${out[0].images.length} photos) · AI ${aiMs}ms · total ${Date.now() - started}ms`);
-    res.json({ matches: out, credit: CREDIT });
+    console.log(`[tokens] ${usage.total} total = ${usage.prompt} input + ${usage.output} output + ${usage.thinking} thinking`);
+    res.json({ matches: out, usage, credit: CREDIT });
   } catch (err) {
     fail(res, err);
   }
@@ -179,11 +180,7 @@ app.post('/api/cutout', (req, res) => {
     if (req.body.failed) {
       cutouts.put(captureId, null);
     } else {
-      // box: the person's size as a fraction of the square, used so the grid never crops them.
-      const b = req.body.box;
-      const frac = (v) => typeof v === 'number' && v > 0 && v <= 1;
-      const box = b && frac(b.w) && frac(b.h) ? { w: b.w, h: b.h } : null;
-      cutouts.put(captureId, { buf: Buffer.from(jpegFrom(req.body), 'base64'), box });
+      cutouts.put(captureId, Buffer.from(jpegFrom(req.body), 'base64'));
     }
     res.status(204).end();
   } catch (err) {

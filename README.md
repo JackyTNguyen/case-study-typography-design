@@ -15,6 +15,8 @@ Open `http://localhost:3000` in Chrome on the kiosk machine, full screen, and al
 
 Re-run `npm run seed` by hand when Exactitudes publishes a new series.
 
+**Console logs (kiosk browser):** after each capture, `[tokens]` shows Gemini's token use (input, output, thinking) and `[timing]` shows capture → result on screen with a breakdown. The server prints the same token line.
+
 **Testing aids:**
 - `?mouse=1`: the mouse acts as a tracked hand.
 - `?fakecam=<image url>`: feeds a still image in as the camera. The image must be same-origin or CORS-enabled.
@@ -44,7 +46,8 @@ capture ─┬─ original JPEG ── POST /api/match {captureId} ──▶ Gem
 ```
 
 - **Background removal** uses MediaPipe's `selfie_multiclass_256x256` in the browser. Everything except the "background" class is kept, so hats, bags and loose hair survive. The mask edge gets a 1.5px blur. The model is warmed up at startup: a cold first run took about 1–5s, while a warm run takes about 50ms against about 4–7s for the AI match.
-- **Centring:** the person's outline is measured from the same mask, and they're moved to the centre of the square (shrunk only if they'd fill more than 92% of it). The grid then fills the visitor's cell like the archive photos, unless that would crop the person, in which case it scales down just enough to show all of them. The flat grey makes both steps seamless. The kiosk and the PNG share this logic (`fitVisitor` in `layout.js`).
+- **Archive framing:** the visitor is scaled and placed to match the archive models, measured on 30 portraits from 10 series: head 6% from the top, feet at 99%, figure 93% of the frame's height, centred (`ARCHIVE_FRAME` in `segment.js`). The flat grey makes moving them seamless. Enlargement is capped at 2.5× so a far-away visitor doesn't go blurry. If the camera cut off their feet, their size is kept and only their head is lined up. The visitor's tile is then an ordinary grid tile: same size as its neighbours, image filling it.
+- **Capture area:** the full height of the camera image, centred on the standing guide, so a whole standing person always fits. Only the part visible on screen is used, and the rest of the square is filled with grey, so bystanders beside the screen aren't captured.
 - **Fallback:** if the segmenter fails, errors, or finds under 3% of a person in frame, the original photo is used. The PNG compositor waits up to 15s from capture for the cut-out, then uses the original. The visitor never sees an error because of this step.
 - **Two servers.** The kiosk + API listen on `127.0.0.1:3000` only. A second server on `0.0.0.0:3001` serves just `/results/<id>` (a phone viewer) and `/results/<id>.png`, so phones on the network can't reach the Gemini endpoint.
 - **Memory only.** Cut-outs are held by captureId for at most 3 minutes, and only until the result picks them up. Results sit under a 144-bit random ID for `RESULT_TTL_MINUTES` (default 20), then they're deleted. Nothing about a visitor is written to disk.

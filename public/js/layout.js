@@ -46,16 +46,5 @@
     return { cols, rects };
   }
 
-  // Where to draw the visitor's (centred) square photo inside a w x h cell.
-  // Like object-fit: cover, so it matches the archive portraits, unless that
-  // would crop the person (box = their size as a fraction of the square); then
-  // it shrinks just enough to show all of them. The photo's flat grey matches
-  // the cell's grey, so any leftover space is invisible.
-  function fitVisitor(w, h, box, margin = 0.04) {
-    let size = Math.max(w, h);
-    if (box) size = Math.min(size, w / Math.min(1, box.w + margin), h / Math.min(1, box.h + margin));
-    return { size, x: (w - size) / 2, y: (h - size) / 2 };
-  }
-
-  return { isPortrait, barHeight, tiles, fitVisitor };
+  return { isPortrait, barHeight, tiles };
 });
